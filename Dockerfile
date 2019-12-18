@@ -33,6 +33,8 @@ RUN cd /tmp && git clone https://github.com/git-ftp/git-ftp.git && cd git-ftp \
     && git checkout "$tag" \
     && mv git-ftp /usr/local/bin && chmod +x /usr/local/bin
 
+RUN docker-php-ext-install sockets
+
 RUN apt-get clean && \
     rm -rf /var/lib/apt/lists/* && \
     rm -rf /tmp/* /var/tmp/*
